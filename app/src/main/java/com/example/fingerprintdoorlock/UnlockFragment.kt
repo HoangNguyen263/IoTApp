@@ -14,7 +14,7 @@ class UnlockFragment : Fragment() {
 
     private lateinit var buttonUnlock: Button
     private lateinit var textStatus: TextView
-    private val unlockHistory = mutableListOf<User>()
+    private lateinit var mqttClientHelper: MqttClientHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,6 +23,7 @@ class UnlockFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_unlock, container, false)
         buttonUnlock = view.findViewById(R.id.button_unlock)
         textStatus = view.findViewById(R.id.text_status)
+        mqttClientHelper = MqttClientHelper(requireContext())
 
         buttonUnlock.setOnClickListener {
             unlockDoor("User Name")
@@ -36,10 +37,9 @@ class UnlockFragment : Fragment() {
         val unlockTime = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(Date(currentTime))
         val user = User(name = userName, unlockTime = unlockTime)
 
-        unlockHistory.add(user)
         textStatus.text = "Status: Door Unlocked at $unlockTime"
 
-        // Pass the unlock history to HistoryFragment
-        (activity as MainActivity).updateHistoryFragment(unlockHistory)
+        // Publish unlock event to MQTT broker
+        mqttClientHelper.publish(unlockTime)
     }
 }
