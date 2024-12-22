@@ -1,6 +1,8 @@
 package com.example.fingerprintdoorlock
 
 data class User(
-    val name: String = "",
-    val unlockTime: String = ""
+    val id: String,
+    val status: String,
+    val message: String,
+    val createdAt: String
 )

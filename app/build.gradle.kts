@@ -53,6 +53,8 @@ dependencies {
     implementation("com.google.firebase:firebase-database-ktx")
     implementation("org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.5")
     implementation ("org.eclipse.paho:org.eclipse.paho.android.service:1.1.1")
-
+    implementation("androidx.localbroadcastmanager:localbroadcastmanager:1.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.9.1")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
 
 }

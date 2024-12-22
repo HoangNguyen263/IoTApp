@@ -15,8 +15,10 @@ class UserAdapter(private val userList: List<User>) : RecyclerView.Adapter<UserA
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = userList[position]
-        holder.unlockDate.text = user.unlockTime.split(" ")[0]
-        holder.unlockTime.text = user.unlockTime.split(" ")[1]
+        holder.unlockDate.text = user.createdAt.split("T")[0]
+        holder.unlockTime.text = user.createdAt.split("T")[1].split(".")[0]
+        holder.status.text = user.status
+        holder.message.text = user.message
     }
 
     override fun getItemCount(): Int {
@@ -26,5 +28,7 @@ class UserAdapter(private val userList: List<User>) : RecyclerView.Adapter<UserA
     class UserViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val unlockDate: TextView = itemView.findViewById(R.id.unlock_date)
         val unlockTime: TextView = itemView.findViewById(R.id.unlock_time)
+        val status: TextView = itemView.findViewById(R.id.status)
+        val message: TextView = itemView.findViewById(R.id.message)
     }
 }
