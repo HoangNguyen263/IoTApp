@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "235058922061",
+    "project_id": "fingerprintdoorlock-bfce7",
+    "storage_bucket": "fingerprintdoorlock-bfce7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:235058922061:android:f8474a77bf24f5f11b5204",
+        "android_client_info": {
+          "package_name": "com.example.fingerprintdoorlock"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCz4IFhxLjpWmbmeLUvuluDJHek0RaGBvk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
